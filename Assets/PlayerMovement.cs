@@ -11,7 +11,9 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator animator;
 
-    Vector2 movement;
+    public Vector2 movement;
+
+    public int playerDirection;
 
     // Update is called once per frame
     void Update()
@@ -38,18 +40,22 @@ public class PlayerMovement : MonoBehaviour
         if (movement.x > 0)
         {
             animator.SetFloat("State", .75f);
+            playerDirection = 0;
         }
         else if (movement.x < 0)
         {
             animator.SetFloat("State", .5f);
+            playerDirection = 1;
         }
         else if (movement.y > 0)
         {
             animator.SetFloat("State", 1f);
+            playerDirection = 2;
         }
         else if (movement.y < 0)
         {
             animator.SetFloat("State", 0f);
+            playerDirection = 3;
         }
     }
 
